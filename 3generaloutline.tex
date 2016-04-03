@@ -1,0 +1,45 @@
+\subsection{General Model Outline}
+
+A visual representation of the model is shown below in figure \ref{fig:schematic-modeloutline}. This interpretation of the system contains the most important areas and how they depend on eachother for information. This will make it easier to inspect these areas in detail as we go along.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                          %
+%                                          %
+%                                          %
+%                                          %
+%                                          %
+%                                          %
+%       fig:schematic-modeloutline         %
+%                                          % Shade code along control
+%                                          % and flight data
+%                                          %
+%                                          %
+%                                          %
+%                                          %
+%                                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Since the model should be able to make use of live input from a pilot as well as actual flight data from a timeseries, the schematic is shaded along the logical path of using recorded flight data. The parts of certain interest that are explained further into the report are represented in the list as follows.
+
+\begin{itemize}
+  \item Pilot Control
+    \begin{itemize}
+      \item Flight Data
+      \item Live Flight
+    \end{itemize}
+  \item Engine
+  \item Aerodynamics
+  \begin{itemize}
+    \item Flight Data
+    \item Live Flight
+  \end{itemize}
+  \item Dynamics
+  \begin{itemize}
+    \item 3DoF for Longitudinal Stability
+    \item 6DoF Complete Model
+  \end{itemize}
+  \item Visualization
+  \item Environment
+\end{itemize}
+
+The part using 3DoF while being important is in essense a tool used for the purpose of investigating longitudinal stability before connecting the 6DoF to also assess lateral stability. It is thus a included in the part explaining the 6DoF model and does not need to be explained separately. 
