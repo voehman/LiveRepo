@@ -13,7 +13,7 @@
 \usepackage{longtable}
 \usepackage{amsmath, amssymb}
 \usepackage{natbib, url}
-% \usepackage[chapter, nottoc]{tocbibind} % Fix heading in bibs etc
+\usepackage[chapter, nottoc]{tocbibind} % Fix heading in bibs etc
 \usepackage{array}
 \usepackage{float}
 \usepackage{caption}
@@ -34,7 +34,7 @@
 
     \begin{LARGE}
       \bfseries
-      CFD Study of 2D Airfoil and 3D Wing To Improve Relations of Lift and Drag\\
+      Victors Thesis - Title could be improved\\
     \end{LARGE}
 
     \vspace{1cm}
@@ -67,22 +67,28 @@
 
 %\frontmatter
 
+\pagenumbering{roman}
+\section*{Abstract} %informative (not descriptive)
 
-\chapter*{Abstract} %informative (not descriptive)
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod interdum diam, eu lobortis libero bibendum in. Vestibulum molestie aliquam ante. Morbi in tortor eu arcu fermentum maximus. Etiam egestas fringilla interdum. Nunc non ullamcorper turpis, eu cursus ipsum. Nulla suscipit tristique nisi id consequat. Donec tellus ligula, feugiat id cursus at, bibendum at velit.
+
 \clearpage
 \thispagestyle{empty}
 \cleardoublepage
 \thispagestyle{plain}
 
 
-\chapter*{Acknowledgments}
+\section*{Acknowledgments}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod interdum diam, eu lobortis libero bibendum in. Vestibulum molestie aliquam ante. Morbi in tortor eu arcu fermentum maximus. Etiam egestas fringilla interdum. Nunc non ullamcorper turpis, eu cursus ipsum. Nulla suscipit tristique nisi id consequat. Donec tellus ligula, feugiat id cursus at, bibendum at velit.
+
 \clearpage
 \thispagestyle{empty}
 \cleardoublepage
 \thispagestyle{plain}
 
 
-\chapter{Notational Conventions}
+\section*{Notational Conventions}
 \label{cha:notation}
 \vspace{-2ex}
 
@@ -131,189 +137,50 @@ t 												& Time\\
 
 \clearpage
 \thispagestyle{empty}
-
 \listoffigures
 
 \clearpage
 \thispagestyle{empty}
-
 \listoftables
 
 \clearpage
 \thispagestyle{empty}
-
 %\mainmatter
-
-\input{1Introduction}
+\pagenumbering{arabic}
+\newpage
+\input{1Introduction} % "CHAPTER" 1
 
 \newpage
-\input{2AircraftModel}
+\input{3SimulinkModel} % "CHAPTER" 2
 
 \newpage
-\input{3SimulinkModel}
+\input{3SimulinkModelExt} % "CHAPTER" 3
 
+\newpage
+\input{4FCSdetail} % "CHAPTER" 4
+
+
+
+%Summary
 
 
 
 \newpage
 \bibliographystyle{unsrt}
 \nocite{*}
-
 \bibliography{ref}
 
 \end{document}
 
-% \begin{equation}
-% C_{d,\,induced} = \frac{C_{l}^{2}}{\pi\, AR\, e}
-% \label{DragEq}
-% \end{equation}
+\pagebreak
+\appendix
 
-% \begin{table}[H]
-% \caption{Spatial discretization schemes and the pressure-velocity coupling for the 2D airfoil case.}
-% \vspace{0.2cm}
-% \centering
-% \begin{tabular}{ll}
-% Pressure-Velocity Coupling & Coupled \\
-% Spatial Discretization $\rightarrow$ \textbf{Gradient} & Least Square Cell Based \\
-% Spatial Discretization $\rightarrow$ \textbf{Pressure} & Second Order \\
-% Spatial Discretization $\rightarrow$ \textbf{Density} & Third Order MUSCL \\
-% Spatial Discretization $\rightarrow$ \textbf{Momentum} & Second Order Upwind \\
-% Spatial Discretization $\rightarrow$ \textbf{Intermittency} & Second Order Upwind \\
-% Spatial Discretization $\rightarrow$ \textbf{Turbulent Kinetic Energy} & Third Order MUSCL \\
-% Spatial Discretization $\rightarrow$ \textbf{Specific Dissipation Rate} & Third Order MUSCL \\
-% Spatial Discretization $\rightarrow$ \textbf{Energy} & Second Order Upwind \\
-% Pseudo Transient & On \\
-% High Order Term Relaxation & On \\
-%  & Second Order Implicit
-% \end{tabular}
-% \label{solvmeth}
-% \end{table}
 
-% \begin{table}[H]
-% \centering
-% \caption{Solution controls used for in the Ansys solver for the 2D airfoil.}
-% \begin{tabular}{lr}
-% Pressure & 0.3 \\
-% Momentum & 0.2 \\
-% Turbulent Kinetic Energy & 0.6 \\
-% Specific Dissipation Rate & 0.5 \\
-% Energy & 0.9 \\
-% \end{tabular}
-% \label{solcont}
-% \end{table}
-
-% \begin{equation}
-% \label{bl_flat_plate}
-% \delta_{max} = max(0.382xRe_{x}^{-1/5})
-% \end{equation}
-
-% \begin{table}[H]
-% \centering
-% \caption{The settings and quality of the coarse and fine mesh.}
-% \begin{tabular}{lccc}
-% \multicolumn{1}{c}{\textbf{Mesh settings}} && \textbf{Coarse} & \textbf{Fine}\\
-% Number of inflation layers && 51 & 51\\
-% Growth rate of inflation layers && 1.1 & 1.1\\
-% First layer thickness &$[m]$ & 6e-6  & 5e-6 \\
-% Number of divisions && 1101 & 1351\\
-% Body of influence element size &$[m]$ & 6e-2 & 6e-2 \\
-% Bulk max size/max face size &$[m]$ & 0.20/0.20  & 0.10/0.10 \\
-% Bulk growth rate &&1.050 & 1.050\\
-% Total number of nodes && 180000 & 245000\\
-% \multicolumn{1}{c}{\textbf{Mesh quality}} && \textbf{Coarse} & \textbf{Fine}\\
-% Max aspect ratio && 179.13 & 193.81\\
-% Average aspect ratio && 15.694 & 15.418\\
-% Max skewness && 0.72632 & 0.7631\\
-% Average skewness && 0.13813& 0.12419\\
-% \end{tabular}
-% \label{meshsettings}
-% \end{table}
-
-% \begin{table}[H]
-% \caption[Mesh independence 2D.]{The results of the two different meshes combined with the relative difference between them.}
-% \centering
-% \begin{tabular}{lccr}
-%  & \textbf{Coarse}& \textbf{Fine} & \textbf{Relative difference} \\
-% Mesh nodes & 180 000 & 245 000 & 36.1\% \\
-%  $C_D$ & 0.00790 & 0.00740 & 6.73\% \\
-% $C_L$ & 0.368 & 0.366& 0.450\% \\
-% $\frac{L}{D}$ & 46.3 & 49.42 & 6.74\% \\
-% \end{tabular}
-% \label{meshilainen}
-% \end{table}
-
-% \begin{table}[H]
-% \centering
-% \caption{Lengths and diameters in the computational domain for the 3D wing case I.}
-% \begin{tabular}{lcc}
-% Domain Forward/Backward 	&$[m]$ 		& 6.0/20 \\
-% Domain Left/Right 			&$[m]$ 		& 8.0/8.0 \\
-% Domain Up/Down 				&$[m]$ 		& 5.0/5.0 \\
-% \end{tabular}
-% \label{domainsizeetc3d1}
-% \end{table}
-
-% \begin{table}[H]
-% \centering
-% \caption[Computational domain and bluff body geometry, 3D wing case I.]{Measurements in the computational domain for the 3D wing case I along with the bluff body measurements. The origin is located in the wing root at leading edge, forward is positive x-axis and left is as wing extends.}
-% \begin{tabular}{lcc}
-% Bluff Body Forward/Backward 	&$[m]$ 		& 1.0/3.0 \\
-% Bluff Body Straight Up/Down		&$[m]$ 		& 1.4/1.6 \\
-% Bluff Body Radius From Front	&$[m]$ 		& 0.3 \\
-% Bluff Body Radius Along Sides	&$[m]$ 		& 0.2 \\
-% BoI I Forward/Backward 			&$[m]$ 		& 2.0/4.0 \\
-% BoI I Left/Right 			 	&$[m]$ 		& 4.2/2.0 \\
-% BoI I Body Up/Down 			 	&$[m]$ 		& 1.4/1.4 \\
-% BoI II Backward From BoI I 		&$[m]$ 		& 16 \\
-% BoI II Left/Right 			 	&$[m]$ 		& 4.2/2.0 \\
-% BoI II Body Up/Down 		 	&$[m]$ 		& 0.8/0.8 \\
-% \end{tabular}
-% \label{domainsizeetc3d2}
-% \end{table}
-
-% \begin{table}[H]
-% \centering
-% \caption{The settings and quality of the mesh.}
-% \begin{tabular}{lcc}
-% \multicolumn{3}{c}{\textbf{Mesh settings}}  \\
-% Bulk max size/max face size &$[m]$ & 0.80/0.80  \\
-% Min size &$[m]$ & 0.10  \\
-% Bulk growth rate && 1.30 \\
-% Total number of nodes && 222000 \\
-% \multicolumn{3}{c}{\textbf{Mesh quality}} \\
-% Max skewness && 0.799 \\
-% Average skewness && 0.220
-% \end{tabular}
-% \label{meshsettings13d}
-% \end{table}
-
-% \begin{table}[H]
-% \centering
-% \caption{Body sizing for the BoI's and edge sizing along the leading edge.}
-% \begin{tabular}{lcc}
-% \multicolumn{3}{c}{\textbf{Mesh quality}} \\
-% BoI I element size 		&$[m]$ & 0.13 \\
-% BoI II element size 	&$[m]$ & 0.20 \\
-% BoI I min size 			&$[m]$ & 0.08 \\
-% BoI II min size 		&$[m]$ & 0.08 \\
-% Edge sizing along leading edge &$[m]$& 0.10 \\
-% \end{tabular}
-% \label{boiboiboi3d}
-% \end{table}
 
 % %Use Bibtex for references and the \texttt{cite} command to refer to the sources. See the .bbl file. Note - there are more available entries than you find in the file. Add your references as appropriate entries and compile at least three times. Citation: The first is to a web page~\cite{website:Tornado}. The second to a journal paper (article)~\cite{laurence:boundary}, and the third to a book~\cite{blazek:cfd}.
 
-% %\begin{equation}
-% %\alpha = \sqrt{\alpha^{2}}
-% %\label{root}
-% %\end{equation}
-% %\pagebreak
-% %\chapter{Bibliography}
 
-
-% \pagebreak
-% \appendix
-% \chapter{Matlab Code for NACA 4-digit series airfoil}
+% \section{Matlab Code for NACA 4-digit series airfoil}
 % \lstset{columns=fullflexible, basicstyle=\ttfamily}
 % Please note that if the resolution $n$ is set too high there might be problems when importing the coordinate file into Workbench Geometry.
 % \begin{lstlisting}
@@ -323,6 +190,5 @@ t 												& Time\\
 % clear all
 % close all
 % clc
-
 
 % \end{lstlisting}
