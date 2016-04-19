@@ -3,18 +3,24 @@
 
 The fourth and last major part in the top level of the model is the aircraft dynamics part. The subsystem called \textbf{Dynamics} takes the input in terms of forces and moments and outputs the so called \textit{Plant Data} which is then used throughout the model and could be looked at as the current state of the model for the coming timestep. The data collected in \textit{Plant Data} is explained later.
 
-% UNDONE
+% v1
 % Missing LLA (how ned it?)
 % Eq undone
+% abbrev NED
+% missing image
+% 1 delim
+% use word cartesian somehwere, maybe euler too?
 \subsubsection{Inertial Reference Frame}
 
-In simple terms, two axis systems are needed to build an aircraft model (and the majority of models with moving parts as well for that matter), one that is fixed and decides where the origin is located and one that is attached to the moving body. In this project the fixed reference frame is an orthagonal three-dimensional vector composed of the position in the x direction $X_e$, the position in the y-direction $Y_e$ and the altitude of the aircraft in the z-direction $Z_e$. The practical use for these values in the model is to declare them as the initial values for each and any simulation, hence, these values are found as follows.
+In simple terms, two axis systems are needed to build an aircraft model (and the majority of models with moving parts as well for that matter), one that is fixed and decides where the origin is located and one that is attached to the moving body. In this project the fixed reference frame, \textbf{$X_e$}, is a vector composed of the position in the x direction $X^e$, the position in the y-direction $Y^e$ and the altitude of the aircraft in the z-direction $Z^e$. The practical use for these values in the model is to declare them as the initial values for each and any simulation, hence, these values are found as follows.
 
 %\begin{equation}
 % nonumber Xe => Xe_0
 % nonumber Ye => Ye_0
-% nonumber Z_e => $h_{ini}$
+% nonumber Z_e => $h\_{ini}$
 %\end{equation}
+
+%%%%%%%%%%%%%% IMAGE OF FIXED AND BODY AND LINE BETWEEN
 
 %
 % Delimitation
@@ -22,10 +28,17 @@ In simple terms, two axis systems are needed to build an aircraft model (and the
 To make use of Newton's laws an intertial frame has to be defined. In this project the earth's surface is assumed flat and non-rotating.
 %
 
-To know which way the frame should be positioned a \textit{NED - North, East, Down} system is used, making the positive x-axis directed North, the positive y-axis directed East and the positive z-axis directed down towards the surface of the earth with the origin in the moving body. These are the values that are used as the output position in every timestep of the simulation. 
+To know which way the frame should be positioned a \textit{NED - North, East, Down} system is used, making the positive x-axis directed North, the positive y-axis directed East and the positive z-axis directed down towards the surface of the earth with the origin in the moving body. These are the values that are used as the output position in every timestep of the simulation.
 
-\subsubsection{Body Reference Frame}
+% v1
+% abbrev CG, Vb, AC (undeclared in text), \alpha
+% stab?
+% use word cartesian somehwere, maybe euler too?
+\subsubsection{Body and Wind Frame}
 
+The AC body frame is an axis system with the origin located at the CG of the body, the positive x-axis along the nose tip of the aircraft body, the positive y-axis on the right hand side of the pilot (starboard) and the positive z-axis directed down towards the ground. A vector, \textbf{$V_b$}, consisting of $V^b_x$, $V^b_y$ and $V^b_z$ constitutes the body velocity in these directions.
+
+The wind frame, with vector named \textbf{$V_w$} is a lot like the body frame, but has the x-axis directed along the actual flight path, giving the actual calculated airspeed of the aircraft V.
 
 
 \input{theory_eqofmotion}
