@@ -1,7 +1,9 @@
 % UNDONE
 \subsection{Aircraft Flight Dynamics}
 
-The fourth and last major part in the top level of the model is the aircraft dynamics part. The subsystem called \textbf{Dynamics} takes the input in terms of forces and moments and outputs the so called \textit{Plant Data} which is then used throughout the model and could be looked at as the current state of the model for the coming timestep. The data collected in \textit{Plant Data} is explained later.
+%The fourth and last major part in the top level of the model is the aircraft dynamics part.
+
+The subsystem called \textbf{Dynamics} takes the input in terms of forces and moments and outputs the so called \textit{Plant Data} which is then used throughout the model and could be looked at as the current state of the model for the coming timestep. The data collected in \textit{Plant Data} is explained later.
 
 % v1
 % Missing LLA (how ned it?)
@@ -28,20 +30,27 @@ In simple terms, two axis systems are needed to build an aircraft model (and the
 To make use of Newton's laws an intertial frame has to be defined. In this project the earth's surface is assumed flat and non-rotating.
 %
 
-To know which way the frame should be positioned a \textit{NED - North, East, Down} system is used, making the positive x-axis directed North, the positive y-axis directed East and the positive z-axis directed down towards the surface of the earth with the origin in the moving body. These are the values that are used as the output position in every timestep of the simulation.
+To know which way the frame should be positioned a \textit{NED, North, East, Down} system is used, making the positive x-axis directed North, the positive y-axis directed East and the positive z-axis directed down towards the surface of the earth with the origin in the moving body. These are the values that are used as the output position in every timestep of the simulation.
 
 % v1
 % abbrev CG, Vb, AC (undeclared in text), \alpha
 % stab?
 % use word cartesian somehwere, maybe euler too?
-\subsubsection{Body and Wind Frame}
+\subsubsection{Body, Stability and Wind Frame}
 
-The AC body frame is an axis system with the origin located at the CG of the body, the positive x-axis along the nose tip of the aircraft body, the positive y-axis on the right hand side of the pilot (starboard) and the positive z-axis directed down towards the ground. A vector, \textbf{$V_b$}, consisting of $V^b_x$, $V^b_y$ and $V^b_z$ constitutes the body velocity in these directions.
+The AC body frame is an axis system with the origin located at the CG of the body, the positive x-axis parallel to fuselage forward axis in the aircraft body, the positive y-axis on the right hand side of the pilot (starboard) and the positive z-axis directed down towards the ground. A vector, \textbf{$V_b$}, consisting of $V^b_x$, $V^b_y$ and $V^b_z$ constitutes the body velocity in these directions and can be seen as a vector of projections of the relative wind on the body axes. The rotations along each axis are the Euler rotation angles \phi for roll around the x-axis, \theta for pitch around the y-axis and \psi for heading rotation around the z-axis. Figure \ref{BodyWindFrameRot}
+
+% IMAGE
+% \label{BodyWindFrameRot}
+
+The body frame is rotated with a \textit{DCM, Directional Cosine Matrix}
 
 The wind frame, with vector named \textbf{$V_w$} is a lot like the body frame, but has the x-axis directed along the actual flight path, giving the actual calculated airspeed of the aircraft V.
 
+As output values the body velocity \textbf{$V_b$} represents the translational characteristics over the timesteps with
 
-\input{theory_eqofmotion}
+\subsubsection{Equations of Motion}
+
 \subsubsection{Longitudinal Stability}
 \subsubsection{Lateral Stability}
 
