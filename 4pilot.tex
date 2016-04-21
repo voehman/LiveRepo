@@ -1,0 +1,17 @@
+% v1
+% delim only logged
+% controller 2 l?
+\subsection{Pilot}
+
+The pilot input in this project can either be by direct input from a controller or by logged data from an actual flight test with the demonstrator. In this project only logged data from flight tests will be used. The top level subsystem \textbf{Pilot Control} has a manual switch allowing the user to choose between logged data or direct control via controller.
+
+% origin of equations to convert PWM
+% introduced \delta_{ca} \delta_{els} \delta_{elp}\delta_{ru} \delta_{T} \delta_{lg}
+% need prev talk about base workspace, maybe overall generla somt
+\subsubsection{Logged Data}
+
+Leaving the switch to accept data from prerecorded data from pilot control of a flight test with the demonstrator means that all information is taken from a timeseries object. The pilot control data used in this project was saved in a file called \textbf{log_pilotcmd.mat} which is a timeseries object containing 11 values recorded for each timestep during the flight test. The signals are recorded from the controler and are \textit{PWM, Pulse Width Modular} signals.
+
+The signals are taken in by importing the file with the logged data from the base workspace, where it was initially imported as a variable along with the rest of the initial conditions and declared variables and constants. The signals are split two ways, one of which leads to a subsystem that makes use of the signals where the signals are split, using "Demux", and then converted one by one by function blocks according to equations by alejandro???????, giving the deflection angles (\delta_{ca} for canard, \delta_{els} and \delta_{elp} for elevons starboard and port and \delta_{ru} for rudder), thrust (\delta_{T}) from 0 to 1, landing gear (\delta_{lg}) from 0 to 1 and clean pilot controler signals for roll, pitch and yaw. The other subsystem that the signals lead to is one built mainly for testing purposes, where the deflection angles are flat at zero after conversion, the thrust is static and controled by a constant giving out from 0 to 1. The remaining signals are left untouched, since they do not alter the flight anyway.
+
+\subsubsection{Live Piloting}
