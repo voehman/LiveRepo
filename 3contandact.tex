@@ -1,14 +1,19 @@
-\subsection{Pilot Control	 \& Actuators}
+\subsection{Pilot Control	\& Actuators}
 
-\subsubsection{Pilot \& Control}
+\subsubsection{Pilot Control}
 
-The part of the system named \textbf{Control} is the part of the model where the pilot commands are either created or read, depending on if the model is run with live pilot control or is run with recorded data. The pilot control PWM signals (Pulse-Width Modulation) are the command signals representing specific SI values. Values of which they are translated into immediately in the same model block before they are directed into the \textbf{Actuators} subsystem.
+The part of the system named \textsc{Pilot Control} is the part of the model where the pilot commands are either created or read, depending on if the model is run with live pilot control or is run with recorded data. The pilot control PWM signals (Pulse-Width Modulation) are the command signals representing specific SI values. Values of which they are translated into immediately in the same model block before they are directed into the \texsc{Actuators \& Servos} subsystem.
 
 \subsubsection{Actuators \& Servos}
 
-The part of the system named \textbf{Actuators} is the part of the model designed to take values from the \textbf{Pilot \& Control} subsystem and run them through the appropriate  output these commands in thrust and control surface deflection angles deflection
-
-
+The part of the system named \textsc{Actuators \& Servos} is designed to take the signals from \textbf{Pilot Control} and a run them through servos. The actuators driving the different control surfaces will not be as quick as the unprocessed signals, so the following steps in in place to make the model more realistic. These servos are 2nd order non-linear actuator servos that serve to give the correct values from the signals and limit the actual rate of change and dampen the signals in order to ouput values more akin to those of a human pilot deflecting with real mechanical parts. Control surface deflection is split up and sent as both output for this subsystem, and as signals going to \textsc{Sensors \& Avionics}.
 % What is missing from here?
 % Delimitations?
+
 \subsubsection{Sensors}
+% sensors
+% imu's
+% guidance
+% autopilot
+
+% Left for others?
