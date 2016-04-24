@@ -1,1 +1,15 @@
+% Needs updating later
+% Talk about the subsystems but really casually, add textsc etc
+% Add variables
+% Lots of delims here
 \subsection{Environment}
+
+The environment system is a simple build since the demonstrator is meant to fly low and with little to no variance in athmosphere. The subsystem as a whole is called environment since it is mostly simple equations and constants with regard to temperature, air density and pressure at ground level. The model takes "Plant Data" as input so subsystems with more complete calculations, like that of athmosphere over different altitude, can be added if needed.
+
+As of now, for subsystems are used. One for terrain, one for wind in the simulated environment, one for ground level athmosphere and one for gravity. The terrain one only includes a statement telling the simulation to stop once the aircraft altitude goes below zero, meaning it has effectively reached the ground.
+
+The wind one is unused as of now.???????
+
+Athmosphere has blablablabla.
+
+Gravity is a vector with the z-axis component assigned the gravitational force imposed by the aircraft body multiplied by $DCM_{be}$, making it a force attached to the body frame easily added elsewhere in the model. 
