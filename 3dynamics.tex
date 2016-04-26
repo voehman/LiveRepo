@@ -1,11 +1,9 @@
 % UNDONE
 \subsection{Aircraft Flight Dynamics}
 
-%The fourth and last major part in the top level of the model is the aircraft dynamics part.
-
 The subsystem called \textsc{Dynamics} takes the input in terms of forces and moments and outputs the so called \textit{Plant Data} which is then used throughout the model and could be looked at as the current state of the model for the coming timestep. The data collected in \textit{Plant Data} is explained later.
 
-% v1
+% v1 v2
 % Missing LLA (how ned it?)
 % Eq undone
 % abbrev NED
@@ -16,11 +14,11 @@ The subsystem called \textsc{Dynamics} takes the input in terms of forces and mo
 
 In simple terms, two axis systems are needed to build an aircraft model (and the majority of models with moving parts as well for that matter), one that is fixed and decides where the origin is located and one that is attached to the moving body. In this project the fixed reference frame, \textbf{$X_e$}, is a vector composed of the position in the x direction $X^e$, the position in the y-direction $Y^e$ and the altitude of the aircraft in the z-direction $Z^e$. The practical use for these values in the model is to declare them as the initial values for each and any simulation, hence, these values are found as follows.
 
-%\begin{equation}
-% nonumber Xe => Xe_0
-% nonumber Ye => Ye_0
-% nonumber Z_e => $h\_{ini}$
-%\end{equation}
+\begin{equation}
+ nonumber Xe => Xe_0
+ nonumber Ye => Ye_0
+ nonumber Z_e => $h\_{ini}$
+\end{equation}
 
 %%%%%%%%%%%%%% IMAGE OF FIXED AND BODY AND LINE BETWEEN
 
@@ -47,7 +45,7 @@ The body frame is rotated with a \textsc{DCM, Directional Cosine Matrix}
 % this needs to be filled out, this is with regard to euler angles, alpha and beta can be described more in aerodynamics
 The wind frame, with vector named \textbf{$V_w$} is a lot like the body frame, but has the x-axis directed along the actual flight path. In practice this is the calculated airspeed of the aircraft as the first component of the vector, with the projections of the second and third component at zero. The airspeed from this point will be called V.
 
-% show V_w in a vector with the projections (if I didnt brainfart here) 
+% show V_w in a vector with the projections (if I didnt brainfart here)
 
 As output values the body velocity \textbf{$V_b$} represents the translational characteristics over the timesteps with
 
